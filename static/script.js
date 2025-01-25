@@ -25,16 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(portada);
 
     // Función para inicializar animaciones
-    const iniciarAnimaciones = () => {
-        // Restablecer las habilidades
+    function iniciarAnimaciones() {
+        // Animaciones de habilidades
         const skills = document.querySelectorAll("li");
-        skills.forEach(skill => {
-            skill.style.opacity = 0;
-            skill.style.transform = "translateY(20px) scale(0.95)";
-            skill.style.transition = "none";
-        });
-
-        // Mostrar habilidades con animación
         skills.forEach((skill, index) => {
             setTimeout(() => {
                 skill.style.opacity = 1;
@@ -42,24 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 skill.style.transition = "transform 0.5s ease, opacity 0.5s ease";
             }, index * 200);
         });
+    }
 
-        // Reiniciar la portada
-        document.body.appendChild(portada);
-        portada.style.opacity = 1;
-
-        setTimeout(() => {
-            portada.style.opacity = 0;
-            setTimeout(() => {
-                portada.remove();
-            }, 1000);
-        }, 3000);
-    };
-
-    // Animar y ocultar la portada al cargar
+    // Ocultar portada y comenzar animaciones
     setTimeout(() => {
         portada.style.opacity = 0;
         setTimeout(() => {
             portada.remove();
+            iniciarAnimaciones(); // Iniciar las animaciones después de ocultar la portada
         }, 1000);
     }, 3000);
 
@@ -95,5 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-
 });
+
