@@ -96,14 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Manejador para el botón
-    const boton = document.querySelector(".button");
-    boton.addEventListener("click", (event) => {
-        event.preventDefault(); // Evitar la navegación predeterminada
-        iniciarAnimaciones(); // Reiniciar las animaciones
-        window.scrollTo({
-            top: 0,
-             // Desplazamiento suave
-        });
-    });
 });
