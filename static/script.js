@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         iniciarAnimaciones(); // Reiniciar las animaciones
         window.scrollTo({
             top: 0,
-            behavior: "smooth", // Desplazamiento suave
+             // Desplazamiento suave
         });
     });
 });
