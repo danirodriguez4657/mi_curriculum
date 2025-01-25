@@ -101,5 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
     boton.addEventListener("click", (event) => {
         event.preventDefault(); // Evitar la navegación predeterminada
         iniciarAnimaciones(); // Reiniciar las animaciones
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Desplazamiento suave
+        });
     });
 });
