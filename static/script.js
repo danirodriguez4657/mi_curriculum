@@ -1,42 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Crear la portada
+    // Crear portada
     const portada = document.createElement("div");
+    portada.id = "portada";
     portada.style.position = "fixed";
     portada.style.top = 0;
     portada.style.left = 0;
-    portada.style.width = "100%";
-    portada.style.height = "100%";
+    portada.style.width = "100vw";
+    portada.style.height = "100vh";
     portada.style.backgroundColor = "#3498db";
-    portada.style.color = "#fff";
+    portada.style.color = "white";
     portada.style.display = "flex";
+    portada.style.flexDirection = "column";
     portada.style.justifyContent = "center";
     portada.style.alignItems = "center";
     portada.style.fontSize = "2rem";
-    portada.style.zIndex = 9999;
-    portada.innerText = "Bienvenido, redirigiéndote a mi currículum...";
+    portada.style.zIndex = 1000;
+    portada.style.transition = "opacity 1s ease";
 
-    // Añadir la portada al cuerpo del documento
+    portada.innerHTML = `
+        <h1>Bienvenido</h1>
+        <p>Redirigiéndote a mi currículum...</p>
+    `;
+
     document.body.appendChild(portada);
 
-    // Desvanecer la portada después de unos segundos
+    // Animar y ocultar la portada después de 3 segundos
     setTimeout(() => {
-        portada.style.transition = "opacity 1s ease";
         portada.style.opacity = 0;
-
-        // Remover la portada del DOM cuando la animación termine
         setTimeout(() => {
-            document.body.removeChild(portada);
-        }, 1000);
-    }, 3000); // Cambiar duración del mensaje (en milisegundos) aquí
+            portada.remove();
+        }, 1000); // Espera a que la animación de desvanecimiento termine
+    }, 3000);
 
-    // Animación de las habilidades
+    // Habilidades
     const skills = document.querySelectorAll("li");
     skills.forEach((skill, index) => {
         setTimeout(() => {
             skill.style.opacity = 1;
-            skill.style.transform = "translateY(0) scale(1.05)"; // Efecto de escala
-            skill.style.transition = "transform 0.5s ease, opacity 0.5s ease"; // Suavizado
-        }, index * 200); 
+            skill.style.transform = "translateY(0) scale(1.05)";
+            skill.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+        }, index * 200);
     });
 
     // Gráfico de habilidades
@@ -60,17 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 tooltip: {
                     enabled: true,
                     callbacks: {
-                        label: function(tooltipItem) {
+                        label: function (tooltipItem) {
                             return `Nivel: ${tooltipItem.raw}`;
                         }
                     }
                 }
             },
             scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 5
-                }
+                y: { beginAtZero: true, max: 5 }
             }
         }
     });

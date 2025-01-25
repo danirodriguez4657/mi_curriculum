@@ -171,3 +171,12 @@ li {
         opacity: 1;
     }
 }
+
+#portada h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+#portada p {
+    font-size: 1.5rem;
+}
