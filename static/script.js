@@ -24,25 +24,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(portada);
 
-    // Animar y ocultar la portada después de 3 segundos
+    // Función para inicializar animaciones
+    const iniciarAnimaciones = () => {
+        // Restablecer las habilidades
+        const skills = document.querySelectorAll("li");
+        skills.forEach(skill => {
+            skill.style.opacity = 0;
+            skill.style.transform = "translateY(20px) scale(0.95)";
+            skill.style.transition = "none";
+        });
+
+        // Mostrar habilidades con animación
+        skills.forEach((skill, index) => {
+            setTimeout(() => {
+                skill.style.opacity = 1;
+                skill.style.transform = "translateY(0) scale(1.05)";
+                skill.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+            }, index * 200);
+        });
+
+        // Reiniciar la portada
+        document.body.appendChild(portada);
+        portada.style.opacity = 1;
+
+        setTimeout(() => {
+            portada.style.opacity = 0;
+            setTimeout(() => {
+                portada.remove();
+            }, 1000);
+        }, 3000);
+    };
+
+    // Animar y ocultar la portada al cargar
     setTimeout(() => {
         portada.style.opacity = 0;
         setTimeout(() => {
             portada.remove();
-        }, 1000); // Espera a que la animación de desvanecimiento termine
+        }, 1000);
     }, 3000);
 
-    // Habilidades
-    const skills = document.querySelectorAll("li");
-    skills.forEach((skill, index) => {
-        setTimeout(() => {
-            skill.style.opacity = 1;
-            skill.style.transform = "translateY(0) scale(1.05)";
-            skill.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-        }, index * 200);
-    });
-
-    // Gráfico de habilidades
+    // Configurar gráfico de habilidades
     const ctx = document.getElementById('skillsChart').getContext('2d');
     const skillsChart = new Chart(ctx, {
         type: 'bar',
@@ -73,5 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 y: { beginAtZero: true, max: 5 }
             }
         }
+    });
+
+    // Manejador para el botón
+    const boton = document.querySelector(".button");
+    boton.addEventListener("click", (event) => {
+        event.preventDefault(); // Evitar la navegación predeterminada
+        iniciarAnimaciones(); // Reiniciar las animaciones
     });
 });
