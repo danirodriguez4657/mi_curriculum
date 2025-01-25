@@ -3,46 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículum de Daniela Rodríguez</title>
+    <title>Bienvenida</title>
     <link rel="stylesheet" href="./static/style.css">
     <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Currículum de Daniela Rodríguez</h1>
-        <img src="./static/mi_foto.jpg" alt="Foto de Daniela Rodríguez" class="foto">
-        <p>Hola visitante, mi nombre es Daniela Rodríguez. 😊</p>
-        <p>Soy estudiante de 4º semestre en Ciencia de Datos en la PUCE, Quito, Ecuador.</p>
-
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Python, R, SQL</li>
-            <li>Power BI, Tableau</li>
-            <li>Machine Learning</li>
-            <li>Estadística y Matemáticas Aplicadas</li>
-            <li>Visualización de datos</li>
-            <li>Análisis de datos y limpieza de datos</li>
-        </ul>
-
-        <h2>Experiencia Académica</h2>
-        <ul>
-            <li>Participación en proyectos de predicción de datos usando Python.</li>
-            <li>Talleres de visualización de datos con Tableau y Power BI.</li>
-        </ul>
-
-        <h2>Información de Contacto</h2>
-        <p>
-            Correo: daniela.rodriguez@example.com<br>
-            LinkedIn: <a href="https://linkedin.com/in/daniela-rodriguez">linkedin.com/in/daniela-rodriguez</a>
-        </p>
-
-        <h2>Visualización de habilidades</h2>
-        <canvas id="skillsChart" width="400" height="200"></canvas>
-        <script src="./static/script.js"></script>
-
-        <a href="/" class="button">Volver al inicio</a>
+    <div>
+        <h1>¡Bienvenida!</h1>
+        <p>Redirigiéndote a mi currículum...</p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 3000); // Cambia a currículum después de 3 segundos
+    </script>
 </body>
 </html>
-
