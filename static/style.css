@@ -177,6 +177,10 @@ li {
     font-size: 3rem;
 }
 
-#portada p {
-    font-size: 1.5rem;
+#portada {
+    transition: opacity 1s ease-in-out;
 }
+.button {
+    cursor: pointer;
+}
+
